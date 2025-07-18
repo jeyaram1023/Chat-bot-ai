@@ -1,179 +1,197 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chatbot with Voice and TTS</title>
-  <style>
-   body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: linear-gradient(to right, red, black, blue);
-  color: white;
-}
+<!DOCTYPE html>  <html lang="en">  
+<head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+  <title>Chatbot with Voice and TTS</title>  
+  <style>  
+    * {  
+      box-sizing: border-box;  
+    }  body {  
+  font-family: Arial, sans-serif;  
+  margin: 0;  
+  padding: 0;  
+  display: flex;  
+  flex-direction: column;  
+  justify-content: center;  
+  align-items: center;  
+  min-height: 100vh;  
+  background: linear-gradient(to right, red, black, blue);  
+  color: white;  
+}  
 
-.chat-title {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  animation: colorChange 3s infinite;
-}
+.chat-title {  
+  font-size: 2rem;  
+  font-weight: bold;  
+  margin-bottom: 1rem;  
+  text-align: center;  
+  animation: colorChange 3s infinite;  
+}  
 
-@keyframes colorChange {
-  0% { color: red; }
-  33% { color: blue; }
-  66% { color: green; }
-  100% { color: orange; }
-}
+@keyframes colorChange {  
+  0% { color: red; }  
+  33% { color: blue; }  
+  66% { color: green; }  
+  100% { color: orange; }  
+}  
 
-.chat-container {
-  width: 400px;
-  height: 600px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  color: rgb(0, 0, 0);
-}
+.chat-container {  
+  width: 95%;  
+  max-width: 420px;  
+  height: 90vh;  
+  background-color: #fff;  
+  border-radius: 10px;  
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);  
+  display: flex;  
+  flex-direction: column;  
+  color: #000;  
+  overflow: hidden;  
+}  
 
-.chat-body {
-  flex: 1;
-  padding: 10px;
-  overflow-y: auto;
-  border-bottom: 1px solid #ddd;
-}
+.chat-body {  
+  flex: 1;  
+  padding: 10px;  
+  overflow-y: auto;  
+  border-bottom: 1px solid #ddd;  
+}  
 
-.message {
-  margin-bottom: 10px;
-  padding: 8px 12px;
-  border-radius: 8px;
-  max-width: 70%;
-}
+.message {  
+  margin-bottom: 10px;  
+  padding: 8px 12px;  
+  border-radius: 8px;  
+  max-width: 70%;  
+  word-wrap: break-word;  
+}  
 
-.user-message {
-  background-color: #007bff;
-  color: #fff;
-  margin-left: auto;
-}
+.user-message {  
+  background-color: #007bff;  
+  color: #fff;  
+  margin-left: auto;  
+}  
 
-.bot-message {
-  background-color: #f1f1f1;
-  color: #333;
-  margin-right: auto;
-}
+.bot-message {  
+  background-color: #f1f1f1;  
+  color: #333;  
+  margin-right: auto;  
+}  
 
-.chat-footer {
-  display: flex;
-  padding: 10px;
-  background-color: #f9f9f9;
-  border-top: 1px solid #ddd;
-}
+.chat-footer {  
+  display: flex;  
+  flex-wrap: wrap;  
+  align-items: center;  
+  padding: 10px;  
+  background-color: #f9f9f9;  
+  border-top: 1px solid #ddd;  
+}  
 
-.message-input {
-  flex: 1;
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-right: 10px;
-}
+.message-input {  
+  flex: 1;  
+  min-width: 0;  
+  padding: 10px;  
+  font-size: 1rem;  
+  border: 1px solid #ccc;  
+  border-radius: 6px;  
+  margin: 5px;  
+}  
 
-.hidden {
-  display: none;
-}
+#send-message {  
+  background-color: #007bff;  
+  color: white;  
+  font-size: 1.2rem;  
+  border: none;  
+  padding: 10px 14px;  
+  border-radius: 6px;  
+  cursor: pointer;  
+  margin: 5px;  
+}  
 
-/* Clip button and dropdown */
-.clip-container {
-  position: relative;
-  display: inline-block;
-}
+.clip-container {  
+  position: relative;  
+  margin-right: 5px;  
+}  
 
-#clip-button {
-
-
-
-
-
-
-  
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-}
+#clip-button {  
+  background: none;  
+  border: none;  
+  font-size: 1.5rem;  
+  cursor: pointer;  
+}  
 
 .clip-dropdown {
-  display: none;
-  position: absolute;
-  bottom: 100%;
-  left: 0;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  z-index: 1;
+
+display: none;
+position: absolute;
+bottom: 110%; /* ✅ Keeps the dropdown ABOVE the button */
+left: 0;
+background-color: #fff;
+border: 1px solid #ddd;
+border-radius: 8px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+z-index: 10;
+min-width: 120px;
 }
 
-.clip-dropdown button {
-  display: block;
-  width: 100%;
-  padding: 8px;
-  background: none;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-  text-align: left;
+.clip-dropdown button,  
+.clip-dropdown select {  
+  display: block;  
+  width: 100%;  
+  padding: 8px;  
+  font-size: 1rem;  
+  border: none;  
+  background: none;  
+  text-align: left;  
+  cursor: pointer;  
+}  
+
+.clip-dropdown button:hover {  
+  background-color: #f1f1f1;  
+}  
+
+.clip-dropdown select {  
+  border-top: 1px solid #ddd;  
+  outline: none;  
+}  
+
+.hidden {  
+  display: none;  
+}  
+
+.clip-container:focus-within .clip-dropdown,  
+.clip-container:hover .clip-dropdown {  
+  display: block;  
 }
 
-.clip-dropdown button:hover {
-  background-color: #f1f1f1;
-}
+ 
 
-/* Show dropdown when clip button is clicked */
-.clip-container:hover .clip-dropdown {
-  display: block;
-}
-  </style>
-</head>
-<body>
-  <div class="chat-title">CHATBOT</div>
-  <div class="chat-container">
-    <div class="chat-body"></div>
-    <div class="chat-footer">
-      <!-- Clip button and dropdown menu -->
-      <div class="clip-container">
-        <button id="clip-button">🖇️</button>
-        <div class="clip-dropdown">
-          <button id="file-upload">📁</button>
-          <input type="file" id="file-input" class="hidden" accept="image/*">
-          <button id="clear-file" class="hidden">❌</button>
-          <button id="camera-button">📷</button> <!-- New camera button -->
-          <button id="voice-input">🎤</button>
-          <button id="toggle-tts">🔊</button>
-          <select id="language-selector">
-            <option value="en">English</option>
-            <option value="es">Spanish</option>
-            <option value="fr">French</option>
-            <option value="de">German</option>
-            <option value="hi">Hindi</option>
-            <option value="ja">Japanese</option>
-            <option value="zh">Chinese</option>
-          </select>
-        </div>
-      </div>
+  </style>  
+</head>  
+<body>  
+  <div class="chat-title">CHATBOT</div>    <div class="chat-container">  
+    <div class="chat-body" id="chat-body"></div>  <div class="chat-footer">  
+  <div class="clip-container">  
+    <button id="clip-button">🖇️</button>  
+    <div class="clip-dropdown">  
+      <button id="file-upload">📁 Upload</button>  
+      <input type="file" id="file-input" class="hidden" accept="image/*" />  
+      <button id="clear-file">❌ Clear</button>  
+      <button id="camera-button">📷 Camera</button>  
+      <button id="voice-input">🎤 Voice</button>  
+      <button id="toggle-tts">🔊 TTS</button>  
+      <select id="language-selector">  
+        <option value="en">English</option>  
+        <option value="hi">Hindi</option>  
+        <option value="ta">Tamil</option>  
+        <option value="es">Spanish</option>  
+        <option value="fr">French</option>  
+        <option value="de">German</option>  
+        <option value="ja">Japanese</option>  
+        <option value="zh">Chinese</option>  
+      </select>  
+    </div>  
+  </div>  
 
-      <!-- Message input and send button -->
-      <input type="text" class="message-input" placeholder="Type a message..." />
-      <button id="send-message">➤</button>
-    </div>
-  </div>
+  <input type="text" class="message-input" id="message-input" placeholder="Type a message..." />  
+  <button id="send-message">➤</button>  
+</div>
 
-  <script src="script.js"></script>
-</body>
-</html>
+  </div>    <script src="script.js"></script>  </body>  
+</html>  
