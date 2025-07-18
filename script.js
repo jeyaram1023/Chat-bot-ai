@@ -7,7 +7,7 @@ const clearFileButton = document.querySelector("#clear-file");
 const toggleTTSButton = document.querySelector("#toggle-tts");
 const languageSelector = document.querySelector("#language-selector");
 
-const API_KEY = "AIzaSyBOgCtp0ozWqear6PXFyLbwq2bo2ZRW5z8"; // Replace with your actual API key
+const API_KEY = "AIzaSyD6t67ErOa0NY7ZoAhREjzIhuuoK2IZzV0"; // Replace with your actual API key
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
 
 const userData = {
