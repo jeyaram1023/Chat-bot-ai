@@ -146,21 +146,7 @@ const generateBotResponse = async (incomingMessageDiv) => {
       zh: "你好",
     },
     whoAreYou: {
-      en: "(I'm ChatGPT, your AI assistant by OpenAI. I help with:
-
-📘 Learning & explanations
-
-💻 Coding & debugging
-
-✍️ Writing editing
-
-🎨 Creative ideas
-
-🌐 Web & app projects
-
-
-Think of me as your smart digital buddy!)
-  ",
+      en: "I was invented by Team Mac.Team members -Maheedhar, Thoufiq, Lahari, Revathi, Sukanya",
       es: "Un chatbot creado por Mahi",
       fr: "Un chatbot créé par Mahi",
       de: "Ein Chatbot, erstellt von Mahi",
