@@ -5,8 +5,11 @@ A simple and interactive AI chatbot web application built using **HTML, CSS, and
 ## 🔗 Live Demo  
 👉 [Click here to use the Chat-Bot AI](https://jeyaram1023.github.io/Chat-bot-ai/)
 
----
 
+
+
+
+---
 ## 📂 Features
 - 💬 Chat interface with user and bot messages  
 - 🤖 Predefined bot responses  
@@ -40,8 +43,23 @@ A simple and interactive AI chatbot web application built using **HTML, CSS, and
 *(You can add a screenshot or GIF here)*  
 Or just try the [live version](https://jeyaram1023.github.io/Chat-bot-ai/)
 
----
 
-## ✍️ Author  
-**JEYARAM (shiva..)**  
-GitHub: [@jeyaram1023](https://github.com/jeyaram1023)
+![chat_ai_home](https://github.com/user-attachments/assets/e0cc32d2-354e-4233-8286-cf6ea4f22fd3)
+
+![chat_ai_image](https://github.com/user-attachments/assets/c61ba4ff-3b09-4aab-b85c-9d5c06d0a3c6)
+![chat_ai_live](https://github.com/user-attachments/assets/23f6b0e9-e04c-4f1c-87d7-dfb445943724)
+
+
+---
+## 👨‍💻 About the Developer
+
+**Name:** Jeyaram Reddy  
+**Email:** jeyaram.reddy.ece@gmail.com  
+**GitHub:** [jeyaram1023](https://github.com/jeyaram1023)  
+**LinkedIn:** [Jeyaram B](https://www.linkedin.com/in/jeyaram-ece-reddy)  
+**Portfolio**[Click here](https://jeyaram1023.github.io/My-portfolio/).
+
+**Location:** India  
+**Status:** Open to collaboration & freelance automation gigs!
+
+---
